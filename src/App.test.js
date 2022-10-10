@@ -6,3 +6,5 @@ test('renders learn react link', () => {
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
+
+//allows automated tests for the app 4 ui
