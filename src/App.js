@@ -7,7 +7,7 @@ function App() {
     <Info />
     <AddItem text='linet' number={0}/>
     <AddItem text='lynne'number={1}/>
-    <AddItem text='test'number={2}/>
+    <AddItem />
     </div>
   );
 }
@@ -21,5 +21,10 @@ function AddItem(props){
       <p>{props.number}</p>
     </form>
   );
+}
+
+AddItem.defaultProps ={
+  number:2,
+  text:"default",
 }
 export default App;
