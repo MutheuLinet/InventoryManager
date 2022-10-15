@@ -3,8 +3,14 @@
 import React from 'react';
 
 class Info extends React.Component {
+
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
+
   render() {
-    const title = "Inventory System";
+    const title = this.props.title;
     const showTitle = true;
     if(showTitle) {
       return(
@@ -18,7 +24,9 @@ class Info extends React.Component {
     }
   }
 }
-
+Info.defaultProps = {
+  title: "Default",
+}
 export default Info;
 
 //create info functional component
