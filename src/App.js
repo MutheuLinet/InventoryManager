@@ -5,9 +5,9 @@ function App() {
   return (
     <div className="App">
     <Info />
-    <AddItem text='linet' number={1}/>
-    <AddItem text='lynne'/>
-    <AddItem text='test'/>
+    <AddItem text='linet' number={0}/>
+    <AddItem text='lynne'number={1}/>
+    <AddItem text='test'number={2}/>
     </div>
   );
 }
@@ -18,6 +18,7 @@ function AddItem(props){
     <form>
       <label for="text-form">Type Something: </label>
       <input type="text" defaultValue={value} id="text-form"/>
+      <p>{props.number}</p>
     </form>
   );
 }
