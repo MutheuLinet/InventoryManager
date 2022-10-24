@@ -1,31 +1,45 @@
 import './App.css';
 import Info from './Info.js'
+import { useState } from "react";
+import { upload } from '@testing-library/user-event/dist/upload';
 
 function App() {
   return (
     <div className="App">
       <Info title="Inventory Management System" />
-      <AddItem text='linet' number={0} />
-      <AddItem text='lynne' number={1} />
-      <Info />
-      <AddItem />
+      <ButtonState />
     </div>
   );
 }
 
-function AddItem(props) {
-  const value = props.text; //accessing props,by default props are javascript objects with name and value
+function ButtonState() {
+  const [title, setTitle] = useState("");
+  const [count, setCount] = useState(0);
+
+  const updateTitleClicked = () => {
+    setTitle("We now have a title")
+  };
+  const updateCounterClicked = () => {
+    setCount(count + 1)
+  };
+
   return (
-    <form>
-      <label for="text-form">Type Something: </label>
-      <input type="text" defaultValue={value} id="text-form" />
-      <p>{props.number}</p>
-    </form>
+    <div>
+      <Data title={title} count={count} />
+      <button onClick={updateTitleClicked}>Update Title</button>
+      <button onClick={updateCounterClicked}>Update Counter</button>
+    </div>
+
   );
 }
 
-AddItem.defaultProps = {
-  number: 2,
-  text: "default",
+function Data(props) {
+  return (
+    <div>
+      <p> Title: {props.title}</p>
+      <p>Count: {props.count} </p>
+    </div>
+  )
 }
+
 export default App;
