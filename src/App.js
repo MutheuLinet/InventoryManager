@@ -1,7 +1,6 @@
 import './App.css';
 import Info from './Info.js'
 import { useState } from "react";
-import { upload } from '@testing-library/user-event/dist/upload';
 
 function App() {
   return (
