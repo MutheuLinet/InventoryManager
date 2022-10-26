@@ -1,21 +1,23 @@
 import { useState } from 'react';
+import { AddItem } from './AddItem';
 import './App.css';
-import { Product } from './Product';
 import { SearchBar } from './SearchBar';
 
 function App() {
-  const [data, setData] = useState({});
+  const [filters, setFilters] = useState({});
+  const [data, setData] = useState({ item: [] });
 
-  const updateData = (searchParams) => {
-    setData(searchParams)
+  const updateFilters = (searchParams) => {
+    setFilters(searchParams);
   }
   return (
     <div className="App">
-      <SearchBar callback={updateData} />
-      <p>Name: {"name" in data ? data["name"] : "No Data to display"}</p>
+      <SearchBar updateSearchParams={updateFilters} />
+      <AddItem />
+      {/* <p>Name: {"name" in data ? data["name"] : "No Data to display"}</p>
       <p>Max Price: {"price" in data ? data["price"] : "No Data to display"}</p>
       <p>Type: {"type" in data ? data["type"] : "No Data to display"}</p>
-      <p>Brand: {"brand" in data ? data["brand"] : "No Data to display"}</p>
+      <p>Brand: {"brand" in data ? data["brand"] : "No Data to display"}</p> */}
 
       {/* <Product
         name="Amazon Echo"
